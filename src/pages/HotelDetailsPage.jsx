@@ -144,18 +144,7 @@ const HotelDetailsPage = () => {
                 {/* Top right */}
                 <div className="h-1/2 p-4 border-b">
                   <h1 className="text-lg font-bold mb-4">Photos</h1>
-                    {/* {hotel?.photos?.length > 0 && hotel.photos.map((photo, index) => ( */}
-                      {/* <div  className="mt-4 h-1/2"> */}
-                    {/* <img
-                      src="https://a0.muscache.com/im/pictures/12b95371-1459-4e2a-b2f2-f468cb0a2256.jpg?im_w=960"
-                      alt="photo"
-                      className='w-52 rounded-md'
-                    /> */}
                   <StandardImageList hotel={hotel} />
-                  
-                      {/* </div> */}
-                      {/* )) */}
-                    {/* } */}
                 </div>
                 
                 {/* Bottom right */}
@@ -163,13 +152,11 @@ const HotelDetailsPage = () => {
                   <h1 className="text-lg font-bold pb-5">Document Proof</h1>
                   <div className="flex mb-8 justify-center relative" >
                     <img
-                      // src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
                       src={hotel?.documentProof}
                       alt="photo"
                       className='border rounded-md w-1/2'
                     />
                     <div className="flex items-end  bottom-3 absolute">
-                      {/* <ModalComponent image={"https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"} /> */}
                       <ModalComponent image={hotel?.documentProof}  />                      
                     </div>
                   </div>

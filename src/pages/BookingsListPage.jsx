@@ -7,16 +7,6 @@ import Loader from "../components/Loader";
 const BookingsListPage = () => {
   const { data, loading, error } = useFetch('/admin/bookings');
   const [list, setList] = useState([]);
-  // useEffect(() => {
-  //   if (data) {
-  //     const newList = data.map((item, index) => ({
-  //       ...item,
-  //       'serialNumber': index + 1
-  //     }));
-  //     setList(newList);
-  //   }
-  // }, [data]);
-
   useEffect(() => {
     if (data) {
       const newList = data.map((item, index) => ({
