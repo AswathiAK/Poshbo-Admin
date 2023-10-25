@@ -10,7 +10,7 @@ import { loginValidation } from '../formValidate';
 import passwordToggle from '../hooks/passwordToggle';
 
 const LoginPage = () => {
-  const auth = Cookies.get('adminToken');
+  const auth = Cookies.get('adminToken');console.log(auth);
   if (auth) {
     return <Navigate to='/'/>
   }
@@ -27,7 +27,8 @@ const LoginPage = () => {
         position: toast.POSITION.TOP_CENTER,
         transition: Flip,
         autoClose: 2000
-      });      
+      });     
+    
       action.resetForm();
       navigate('/');
     } catch (error) {     
