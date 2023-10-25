@@ -7,11 +7,11 @@ import { reportColumns } from '../components/dataTableLists';
 import useFetch from '../hooks/useFetch';
 import Loader from "../components/Loader";
 import * as XLSX from 'xlsx';
-import { format } from "date-fns";
-import pdfMake from 'pdfmake/build/pdfmake';
-import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { format } from 'date-fns';
+// import pdfMake from 'pdfmake/build/pdfmake';
+// import pdfFonts from 'pdfmake/build/vfs_fonts';
+// pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import axios from '../services/axios';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const SalesReportPage = () => {
   const { data, loading, error } = useFetch('/admin/report');
@@ -65,40 +65,40 @@ const SalesReportPage = () => {
     XLSX.writeFile(workBook, "sales_report.xlsx");
   };
 
-  const downloadPdfReport = () => {
-    const documentDefinition = {
-      content: [
-        { text: 'Sales Report', style: 'header' },
-        {
-          table: {
-            headerRows: 1,
-            widths: ['auto', 'auto', 'auto', 'auto', 'auto'],
-            body: [
-              ['SL.No', 'Date', 'Booking ID', 'Hotel Name', 'Total Amount'],
-              ...list.map((item, index) => [
-                index + 1,
-                format(new Date(item.createdAt), 'dd/MM/yyyy'),
-                item._id,
-                item.hotel?.name || '',
-                item.totalAmount.toFixed(2),
-              ]),
-              ['', 'Total:', '', '', totalPrice.toFixed(2)],
-              ['', 'Earnings:', '', '', totalEarnings.toFixed(2)],
-            ],
-          },
-        },
-      ],
-      styles: {
-        header: {
-          fontSize: 18,
-          bold: true,
-          alignment: 'center',
-          margin: [0, 0, 0, 10],
-        },
-      },
-    };
-    pdfMake.createPdf(documentDefinition).download('sales_report.pdf');
-  };
+  // const downloadPdfReport = () => {
+  //   const documentDefinition = {
+  //     content: [
+  //       { text: 'Sales Report', style: 'header' },
+  //       {
+  //         table: {
+  //           headerRows: 1,
+  //           widths: ['auto', 'auto', 'auto', 'auto', 'auto'],
+  //           body: [
+  //             ['SL.No', 'Date', 'Booking ID', 'Hotel Name', 'Total Amount'],
+  //             ...list.map((item, index) => [
+  //               index + 1,
+  //               format(new Date(item.createdAt), 'dd/MM/yyyy'),
+  //               item._id,
+  //               item.hotel?.name || '',
+  //               item.totalAmount.toFixed(2),
+  //             ]),
+  //             ['', 'Total:', '', '', totalPrice.toFixed(2)],
+  //             ['', 'Earnings:', '', '', totalEarnings.toFixed(2)],
+  //           ],
+  //         },
+  //       },
+  //     ],
+  //     styles: {
+  //       header: {
+  //         fontSize: 18,
+  //         bold: true,
+  //         alignment: 'center',
+  //         margin: [0, 0, 0, 10],
+  //       },
+  //     },
+  //   };
+  //   pdfMake.createPdf(documentDefinition).download('sales_report.pdf');
+  // };
   
   const filterData = async () => {
     if (startDate && endDate && startDate <= endDate) {
@@ -192,11 +192,11 @@ const SalesReportPage = () => {
                     >
                       <DescriptionIcon />
                     </button>
-                    <button onClick={downloadPdfReport}
+                    {/* <button onClick={downloadPdfReport}
                       className="ml-3 px-2 py-2 hover:bg-slate-200 hover:rounded-lg text-red-500"
                     >
                       <PictureAsPdfIcon />
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>

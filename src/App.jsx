@@ -19,7 +19,7 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path='/login' element={<LoginPage />} />
-        <Route element={<ProtectedRoute />}>
+        {/* <Route element={<ProtectedRoute />}> */}
           <Route path='/' element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path='/reports' element={<SalesReportPage/>}/>
@@ -29,7 +29,7 @@ function App() {
             <Route path='/users/:id' element={<UserDetailsPage />} />
             <Route path='/bookings' element={<BookingsListPage />} />
           </Route>
-        </Route>
+        {/* </Route> */}
         <Route path='*' element={<ErrorPage/> } />        
       </Routes>
     </>
