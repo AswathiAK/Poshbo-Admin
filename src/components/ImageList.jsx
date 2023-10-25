@@ -12,7 +12,7 @@ export default function StandardImageList({ hotel }) {
             // src={`${photo}?w=164&h=164&fit=crop&auto=format`}
             // srcSet={`${photo}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
             src={photo}
-            srcSet={`${photo}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+            srcSet={photo}
             alt='photos'
             loading="lazy"
             style={{ width: '200px', height: '100px', objectFit: 'cover' }}
