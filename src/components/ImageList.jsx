@@ -9,7 +9,9 @@ export default function StandardImageList({ hotel }) {
       {hotel?.photos?.length>0 && hotel.photos.map((photo,index) => (
         <ImageListItem key={index}>
           <img
-            src={`${photo}?w=164&h=164&fit=crop&auto=format`}
+            // src={`${photo}?w=164&h=164&fit=crop&auto=format`}
+            // srcSet={`${photo}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+            src={photo}
             srcSet={`${photo}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
             alt='photos'
             loading="lazy"
