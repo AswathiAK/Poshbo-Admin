@@ -13,6 +13,7 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import IconButton from '@mui/material/IconButton';
 import axios from '../services/axios';
+import Cookies from 'js-cookie';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ const Navbar = () => {
   };
   const handleLogout = async() => {
     await axios.post('/admin/logout');
+    Cookies.remove('adminToken');
     navigate('/login');
   }
   return (

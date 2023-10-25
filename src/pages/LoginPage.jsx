@@ -10,7 +10,7 @@ import { loginValidation } from '../formValidate';
 import passwordToggle from '../hooks/passwordToggle';
 
 const LoginPage = () => {
-  const auth = Cookies.get('adminToken');console.log(auth);
+  const auth = Cookies.get('adminToken');
   if (auth) {
     return <Navigate to='/'/>
   }
@@ -23,14 +23,12 @@ const LoginPage = () => {
   const handleLogin = async (values, action) => {
     try {
       const { data } = await axios.post('/admin', values); 
-      console.log(data)
       Cookies.set('adminToken', data.token);
       toast.success(data.message, {
         position: toast.POSITION.TOP_CENTER,
         transition: Flip,
         autoClose: 2000
       });     
-    
       action.resetForm();
       navigate('/');
     } catch (error) {     

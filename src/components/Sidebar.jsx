@@ -5,6 +5,7 @@ import logo from "../assets/poshbologo.svg"
 import { SidebarBottomLinks, SidebarLinks } from './sidebarMenu';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from '../services/axios';
+import Cookies from 'js-cookie';
 
 const linkClass = 'flex items-center gap-2 px-3 py-2 hover:bg-gray-400 hover:no-underline hover:text-white active:bg-neutral-600 rounded-sm font-medium ';
 
@@ -12,6 +13,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const handleLogout = async() => {
     await axios.post('/admin/logout');
+    Cookies.remove('adminToken');
     navigate('/login');
   };
 
