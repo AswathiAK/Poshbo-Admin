@@ -23,6 +23,7 @@ const LoginPage = () => {
   const handleLogin = async (values, action) => {
     try {
       const { data } = await axios.post('/admin', values); 
+      Cookies.set('adminToken', data.token);
       toast.success(data.message, {
         position: toast.POSITION.TOP_CENTER,
         transition: Flip,
