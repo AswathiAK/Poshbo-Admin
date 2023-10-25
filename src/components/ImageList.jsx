@@ -51,7 +51,7 @@ const StandardImageList = ({ hotel }) => {
         ❱
       </div>
       <div style={{ backgroundImage: `url(${hotel.photos?.[currentIndex]})`,backgroundSize:'cover' }}
-        className='w-96 h-96 rounded-lg bg-center '
+        className='w-[450px] h-96 rounded-lg bg-center '
       >
       </div>
     </div>
