@@ -9,7 +9,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
     (config) => {
     const adminToken = Cookies.get('adminToken');
-      if (token) {
+      if (adminToken) {
         config.headers.Authorization = `Bearer ${adminToken}`;
       }
       return config;
